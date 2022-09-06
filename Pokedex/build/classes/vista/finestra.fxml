@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FinestraController">
+   <children>
+      <TabPane layoutX="552.0" prefHeight="596.0" prefWidth="247.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Uusuario conectado">
+            <content>
+              <AnchorPane fx:id="elim_event" minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="189.0">
+                     <children>
+                        <TextField fx:id="sunombre" layoutX="49.0" layoutY="14.0" prefHeight="25.0" prefWidth="163.0" text="Usuario" />
+                        <TextField fx:id="sucontra" layoutX="49.0" layoutY="50.0" prefHeight="25.0" prefWidth="163.0" text="Contraseña" />
+                        <Button fx:id="login" layoutX="49.0" layoutY="95.0" mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="61.0" text="Entrar" />
+                        <Button fx:id="logout" layoutX="150.0" layoutY="95.0" mnemonicParsing="false" onAction="#sortir" prefHeight="25.0" prefWidth="61.0" text="Sortir" />
+                        <Text fx:id="usuario_conectado" layoutX="113.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Button layoutX="62.0" layoutY="302.0" mnemonicParsing="false" onAction="#cambiar_contra" text="Cambiar contraseña" />
+                        <TextField fx:id="contrasenanueva" layoutX="49.0" layoutY="257.0" promptText="Ponga aqui su nueva contraseña" />
+                        <Text fx:id="contracamb" layoutX="24.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Button fx:id="eliminar_mi_usu" layoutX="64.0" layoutY="413.0" mnemonicParsing="false" onAction="#borrar_mi_usuario" text="Eliminar mi usuario" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Crear usuario">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="crear_ususari" layoutX="40.0" layoutY="103.0" mnemonicParsing="false" onAction="#anadir_usuario" prefHeight="44.0" prefWidth="181.0" text="Crear usuari">
+                           <font>
+                              <Font name="Consolas" size="16.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="usuario_nuevo" layoutX="56.0" layoutY="24.0" text="Usuario" />
+                        <TextField fx:id="contrasena_nueva" layoutX="56.0" layoutY="64.0" text="Contraseña" />
+                        <Text fx:id="event_crear_usu" layoutX="54.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Haga click para crear usuario" />
+                        <Text fx:id="norma_txt" layoutX="64.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="132.80340576171875" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <TabPane prefHeight="596.0" prefWidth="553.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Pokedex ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imagen" fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/pikachu.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="pokemonname" layoutX="314.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pikachu" textAlignment="CENTER" wrappingWidth="142.13671875" />
+                        <TextArea fx:id="descripcion_pokedex" layoutX="293.0" layoutY="251.0" prefHeight="204.0" prefWidth="247.0" />
+                        <ListView fx:id="pokedex_lista" layoutX="23.0" layoutY="47.0" prefHeight="354.0" prefWidth="236.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Crear Pokémon">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="nombre_de_pkmn_nuevo" layoutX="42.0" layoutY="70.0" prefHeight="25.0" prefWidth="233.0" text="Nombre del Pokemon" />
+                        <TextArea fx:id="descripcion" layoutX="45.0" layoutY="110.0" prefHeight="216.0" prefWidth="232.0" text="Escribe aquí la descripción del Pokemon" />
+                        <RadioButton fx:id="fuego" layoutX="34.0" layoutY="389.0" mnemonicParsing="false" text="Fuego">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tipos_pokemon" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="agua" layoutX="134.0" layoutY="389.0" mnemonicParsing="false" text="Agua" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="siniestro" layoutX="34.0" layoutY="411.0" mnemonicParsing="false" text="Siniestro" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="fantasma" layoutX="134.0" layoutY="411.0" mnemonicParsing="false" text="Fantasma" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="psiquico" layoutX="233.0" layoutY="411.0" mnemonicParsing="false" text="Psiquico" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="planta" layoutX="233.0" layoutY="389.0" mnemonicParsing="false" text="Planta" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="electrico" layoutX="328.0" layoutY="389.0" mnemonicParsing="false" text="Electrico" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="volador" layoutX="424.0" layoutY="389.0" mnemonicParsing="false" text="Volador" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="lucha" layoutX="328.0" layoutY="411.0" mnemonicParsing="false" text="Lucha" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="tierra" layoutX="424.0" layoutY="411.0" mnemonicParsing="false" text="Tierra" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="normal" layoutX="134.0" layoutY="436.0" mnemonicParsing="false" text="Normal" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="roca" layoutX="234.0" layoutY="437.0" mnemonicParsing="false" text="Roca" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="veneno" layoutX="328.0" layoutY="437.0" mnemonicParsing="false" text="Veneno" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="hielo" layoutX="425.0" layoutY="437.0" mnemonicParsing="false" text="Hielo" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="bicho" layoutX="34.0" layoutY="436.0" mnemonicParsing="false" text="Bicho" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="acero" layoutX="135.0" layoutY="463.0" mnemonicParsing="false" text="Acero" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="hada" layoutX="231.0" layoutY="463.0" mnemonicParsing="false" text="Hada" toggleGroup="$tipos_pokemon" />
+                        <RadioButton fx:id="dragon" layoutX="328.0" layoutY="463.0" mnemonicParsing="false" text="Dragón" toggleGroup="$tipos_pokemon" />
+                        <Text layoutX="223.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipos del Pokémon" />
+                        <Text fx:id="tipos_pok" layoutX="315.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="51.3333740234375" />
+                        <Button fx:id="anadir_tipo" layoutX="411.0" layoutY="344.0" mnemonicParsing="false" onAction="#anadir_tipo" text="Añadir Tipo" />
+                        <Button fx:id="crear_pmn_button" layoutX="230.0" layoutY="508.0" mnemonicParsing="false" onAction="#crear_pokemon" text="CREAR POKÉMON" />
+                        <TextField fx:id="ruta_pkmn_img" layoutX="315.0" layoutY="70.0" prefHeight="25.0" prefWidth="227.0" text="ruta de la imágen del pokémon" />
+                        <Text fx:id="pokcreate" layoutX="370.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="noti_pok_creado" layoutX="414.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
